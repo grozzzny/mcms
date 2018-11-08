@@ -206,7 +206,17 @@ if (YII_ENV_DEV) {
 if (empty($_COOKIE['dev'])) {
     $config['modules']['coming_soon'] = [
         'class' => 'grozzzny\coming_soon\ComingSoonModule',
-        'settings' => []
+        'settings' => [
+            'background' => '/images/JkchpZ_15020826211.jpg',
+            'title' => 'Интерактивная платформа СМИ',
+            'heading' => 'Сайт находится в разработке',
+            'descriptions' => 'Мы идем в ногу со временем и поэтому предлагаем вам самые актуальные решения в области веба. Да, мы просто делаем свое дело хорошо.',
+            'address' => 'Калининград',
+            'phone' => '+7 (911) 466-56-43',
+            'email' => 'info@pr-kenig.ru',
+            'expiryDate' => '2018/11/30',
+            'copyright' => 'The Project SMI. All rights reserved.',
+        ]
     ];
     $config['catchAll'] = ['coming_soon'];
 
