@@ -30,7 +30,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        switch (Yii::$app->layoutPath){
+            case '@main/layoutsBootstrap4/layouts':
+                $view = 'index_bootstrap4';
+                break;
+            case '@main/layoutsMDBootstrap4/layouts':
+                $view = 'index_mdbootstrap4';
+                break;
+            default:
+                $view = 'index_bootstrap3';
+        }
+
+        return $this->render($view);
     }
 
 }

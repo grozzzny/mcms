@@ -226,12 +226,12 @@
 #easyii2-navbar {
   background-color: #303030 !important;
   border: none;
-  z-index: 100000000000;
+  z-index: 1000;
   display: block;
   position: fixed;
   width: 100%;
-  top: 0;
-  height: 60px;
+  bottom: 0;
+  height: 42px;
   .navbar-text {
     padding: 0 !important;
     margin: 0 !important;

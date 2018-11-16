@@ -459,8 +459,7 @@ footer {
   display: block;
   position: fixed;
   width: 100%;
-  top: 0;
-  height: 60px;
+  height: 50px;
 }
 /**
  * section-callback
@@ -759,3 +758,4 @@ footer {
     height: initial;
   }
 }
+/*# sourceMappingURL=styles.css.map */

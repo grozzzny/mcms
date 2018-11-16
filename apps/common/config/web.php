@@ -9,7 +9,7 @@ $params = array_merge(
 
 $config = [
     'id' => 'app',
-    'name' => 'smi',
+    'name' => 'crm',
     'vendorPath' => $app_root . '/vendor',
     'bootstrap' => ['log'],
     'language' => 'ru-RU',

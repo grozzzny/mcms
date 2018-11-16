@@ -14,8 +14,8 @@ $config = [
     'controllerNamespace' => 'main\controllers',
     'bootstrap' => ['admin'],
     'layoutPath' => '@main/views/layouts',
-    //'layoutPath' => '@main/layoutsBootstrap4/layouts',
-    //'layoutPath' => '@main/layoutsMDBootstrap4/layouts',
+    //'layoutPath' => '@main/views/layoutsBootstrap4',
+    //'layoutPath' => '@main/views/layoutsMDBootstrap4',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

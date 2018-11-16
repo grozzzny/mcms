@@ -3,7 +3,6 @@
 namespace main\widgets;
 
 use Yii;
-use yii\easyii2\AdminModule;
 use yii\easyii2\widgets\ReCaptcha;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -15,7 +14,7 @@ class Feedback extends \yii\easyii2\modules\feedback\api\Feedback
     public function form($options = [])
     {
         $model = new \yii\easyii2\modules\feedback\models\Feedback();
-        $settings = AdminModule::getInstance()->getModule('feedback')->settings;
+        $settings = Yii::$app->getModule('admin')->getModule('feedback')->settings;
         $options = array_merge($this->_defaultFormOptions, $options);
 
         ob_start();
