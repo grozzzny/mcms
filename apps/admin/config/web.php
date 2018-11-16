@@ -6,20 +6,18 @@ $params = array_merge(
     require(__DIR__ . '/params-local.php')
 );
 
-$db = require __DIR__ . '/db.php';
+$db = require __DIR__ . '/../../main/config/db.php';
 
 $config = [
-    'id' => 'main',
+    'id' => 'admin',
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'main\controllers',
+    'controllerNamespace' => 'yii\easyii2\controllers',
+    'defaultRoute' => 'default',
     'bootstrap' => ['admin'],
-    'layoutPath' => '@main/views/layouts',
-    //'layoutPath' => '@main/views/layoutsBootstrap4',
-    //'layoutPath' => '@main/views/layoutsMDBootstrap4',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'a6gS1b1c-gQ6sfv7xdfgMC78dT4',
+            'cookieValidationKey' => 'a6grtygQ6sfv7xdfgMC14578dT4',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -40,8 +38,11 @@ $config = [
             'class' => '\rmrevin\yii\minify\View',
             'theme' => [
                 'pathMap' => [
+                    '@admin/views' => [
+                        '@vendor/grozzzny/easyii2/views',
+                    ],
                     '@vendor/grozzzny/easyii2/views' => [
-                        '@admin/views/easyii2'
+                        '@admin/views'
                     ],
                 ],
             ],
@@ -69,13 +70,6 @@ $config = [
                 'collapseSlashes' => true
             ],
             'rules' => [
-                '<page_slug:example_1|example_2|example_3>' => 'page/index',
-
-                '<controller:\w+>/view/<slug:[\w-]+>' => '<controller>/view',
-                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-                '<controller:\w+>/cat/<slug:[\w-]+>' => '<controller>/cat',
-
-                //admin
                 'admin/<controller:\w+>/<action:[\w-]+>/<id:\d+>' => 'admin/<controller>/<action>',
                 'admin/<module:\w+>/<controller:\w+>/<action:[\w-]+>/<id:\d+>' => 'admin/<module>/<controller>/<action>'
             ],
@@ -98,29 +92,6 @@ $config = [
 
                 'yii\bootstrap\BootstrapPluginAsset' => [
                     'js' => [YII_DEBUG ? 'js/bootstrap.js' : 'js/bootstrap.min.js'],
-                ],
-
-                'grozzzny\depends\bootstrap4\Bootstrap4Asset' => [
-                    'basePath' => '@webroot',
-                    'baseUrl' => '@web',
-                    'css' => ['css/bootstrap4/bootstrap.css'],
-                ],
-
-                'grozzzny\depends\mdbootstrap\MDBootstrapAsset' => [
-                    'basePath' => '@webroot',
-                    'baseUrl' => '@web',
-                    'css' => ['css/mdbootstrap/mdb.css'],
-                ],
-
-                'grozzzny\depends\mdbootstrap\MDBootstrapPluginAsset' => [
-                    'chart' => true,
-                    'enhancedModals' => true,
-                    'formsFree' => true,
-                    'jqueryEasing' => true,
-                    'scrollingNavbar' => true,
-                    'velocity' => true,
-                    'waves' => true,
-                    'wow' => true,
                 ],
             ],
         ],
@@ -158,8 +129,8 @@ $config = [
                 'catalog' => [
                     'class' => 'grozzzny\catalog\CatalogModule',
                     'settings' => [
-                        'modelCategory' => '\main\models\Category',
-                        'modelItem' => '\main\models\Item',
+                        'modelCategory' => '\admin\models\Category',
+                        'modelItem' => '\admin\models\Item',
                     ]
                 ],
                 'sitemap' => 'grozzzny\sitemap\Module',
@@ -167,39 +138,7 @@ $config = [
             ]
         ],
     ],
-    //coming_soon
-    'on beforeAction' => function() {
-        if(isset($_GET['open'])){
-            setcookie("dev","true",time() + 30*24*60*60);
-            exit('<html><head><meta http-equiv="refresh" content="0;/"></head><body></body></html>');
-        }
-    },
     'params' => $params,
 ];
-
-/**
- * Заглушка
- */
-if (empty($_COOKIE['dev'])) {
-    $config['modules']['coming_soon'] = [
-        'class' => 'grozzzny\coming_soon\ComingSoonModule',
-        'settings' => [
-            'background' => '/images/JkchpZ_15020826211.jpg',
-            'title' => 'Интерактивная платформа',
-            'heading' => 'Сайт находится в разработке',
-            'descriptions' => 'Мы идем в ногу со временем и поэтому предлагаем вам самые актуальные решения в области веба. Да, мы просто делаем свое дело хорошо.',
-            'address' => 'Калининград',
-            'phone' => '+7 (911) 458-71-42',
-            'email' => 'info@pr-kenig.ru',
-            'expiryDate' => '2019/11/30',
-            'copyright' => 'The Project. All rights reserved.',
-        ]
-    ];
-    $config['catchAll'] = ['coming_soon'];
-
-    //debug off
-    $key = array_search('debug', $config['bootstrap']);
-    unset($config['bootstrap'][$key]);
-}
 
 return $config;

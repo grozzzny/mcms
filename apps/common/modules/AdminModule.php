@@ -24,4 +24,15 @@ class AdminModule extends \yii\easyii2\AdminModule
             Yii::$app->end();
         }
     }
+
+    public function bootstrap($app)
+    {
+        Yii::setAlias('easyii2', '@vendor/grozzzny/easyii2');
+
+        if (!$app->user->isGuest && strpos($app->request->pathInfo, 'admin') === false && Yii::$app->id != 'admin') {
+            $app->on(Application::EVENT_BEFORE_REQUEST, function () use ($app) {
+                $app->getView()->on(View::EVENT_BEGIN_BODY, [$this, 'renderToolbar']);
+            });
+        }
+    }
 }
