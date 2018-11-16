@@ -1,5 +1,3 @@
 <?php
 
-return [
-    'enableMinifySaveRedis' => false
-];
+return [];

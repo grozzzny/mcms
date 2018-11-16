@@ -27,6 +27,15 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure a transport
+            // for the mailer to send real emails.
+            'useFileTransport' => LOCALHOST,
+            'viewPath' => '@main/mail'
+            //'transport' => require __DIR__ . '/smtp.php'
+        ],
         'view' => [
             'class' => '\rmrevin\yii\minify\View',
             'theme' => [
@@ -139,6 +148,9 @@ $config = [
     'modules' => [
         'admin' => [
             'class' => 'common\modules\AdminModule',
+            'basePath' => '@vendor/grozzzny/easyii2',
+            'controllerNamespace' => 'yii\easyii2\controllers',
+            'consoleConfig' => '@console/config/console.php',
             'modules' => [
                 'page' => 'yii\easyii2\modules\page\PageModule',
                 'partners' => 'grozzzny\partners\PartnersModule',

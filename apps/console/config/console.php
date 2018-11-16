@@ -1,17 +1,24 @@
 <?php
 
-$params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
+$params = array_merge(
+    require(__DIR__ . '/params.php'),
+    require(__DIR__ . '/params-local.php')
+);
+$db = require __DIR__ . '/../../main/config/db.php';
+
+$root = dirname(__DIR__);
 
 $config = [
-    'id' => 'basic-console',
-    'basePath' => dirname(__DIR__),
+    'id' => 'console',
+    'basePath' => $root,
     'bootstrap' => ['log'],
-    'controllerNamespace' => 'app\commands',
+    'vendorPath' => dirname(dirname(dirname(__DIR__))) . '/vendor',
+    'controllerNamespace' => 'console\controllers',
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
-        '@webroot' => '@app/web',
+        '@console'   => $root,
+        '@webroot' => $root,
     ],
     'components' => [
         'cache' => [
@@ -28,15 +35,15 @@ $config = [
         'db' => $db,
     ],
     'modules' => [
-        'sitemap' => [
-            'class' => 'grozzzny\sitemap\Module',
-            'domain' => '',
-            'generatedByLink' => 'http://pr-kenig.ru',
-            'generatedByName' => 'PRkenig',
-            'controllerMap' => [
-                'console' => 'app\commands\SitemapController'
-            ]
-        ]
+        //'sitemap' => [
+        //    'class' => 'grozzzny\sitemap\Module',
+        //    'domain' => 'https://my-site.com',
+        //    'generatedByLink' => 'http://pr-kenig.ru',
+        //    'generatedByName' => 'PRkenig',
+        //    'controllerMap' => [
+        //        'console' => 'console\controllers\SitemapController'
+        //    ]
+        //]
     ],
     'params' => $params,
     /*
