@@ -1,0 +1,83 @@
+@import "../bootstrap3/_variables.less";
+@import "../bootstrap3/_mixins.less";
+
+.navbar-theme{
+  background-color: @color-theme-white !important;
+  color: @color-black;
+  @media (max-width: @screen-xs-max){
+    .navbar-collapse.show{
+      overflow: auto;
+      height: -webkit-fill-available;
+    }
+  }
+  @media (min-width: @screen-xs) {
+    .dropdown {
+      .menu-categories {
+        display: block !important;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: 0.3s opacity linear;
+        transition-property: opacity, transform;
+      }
+      &.show {
+        .menu-categories {
+          visibility: visible;
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+    }
+  }
+}
+
+.navbar-brand{
+  @media (max-width: @screen-xs-max){
+    margin-right: 0;
+  }
+}
+
+.header-phone{
+  font-size: 1.5rem;
+  color: @color-black;
+  text-decoration: none !important;
+  @media (max-width: @screen-xs-max){
+    font-size: 1.4rem;
+  }
+}
+
+
+/**
+ * menu-categories
+ */
+.menu-categories{
+  width: 100%;
+  margin-top: 0px;
+  border: none;
+  background-color: darken(@color-theme-white, 5%);
+  box-shadow: inset 0px 4px 10px #00000012;
+  @media (min-width: @screen-xs){
+    background-image: url("../images/brain.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: auto 80%;
+  }
+
+}
+.menu-categories-item{
+  .card-header{
+    //color: @color-theme-dark;
+  }
+  .card-preview{
+    background-color: rgba(0, 0, 0, 0.03);
+    @media (max-width: @screen-xs-max){
+      display: none;
+    }
+    & > div{
+      //width: 300px;
+      //height: 300px;
+      width: 100%;
+      margin: auto;
+    }
+  }
+}

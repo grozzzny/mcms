@@ -1,0 +1,155 @@
+/**
+ * line-clamp
+ */
+.line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+}
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 4;
+}
+.line-clamp-5 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 5;
+}
+.background-dark {
+  background-color: #2773a3;
+}
+.background-alternative {
+  background-color: #e59800;
+}
+/**
+ * flex-center
+ */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+/**
+ * transition-theme
+ */
+.transition-theme {
+  transition: 0.2s all linear;
+}
+.relative {
+  position: relative;
+}
+/**
+ * list-no-style
+ */
+.list-no-style {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/**
+ * no-border-radius
+ */
+.no-border-radius {
+  border-radius: 0;
+}
+/**
+ * no-padding
+ */
+.no-padding {
+  padding: 0;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+.navbar-theme {
+  background-color: #f8f8f8 !important;
+  color: #1e1e1e;
+}
+@media (max-width: 767px) {
+  .navbar-theme .navbar-collapse.show {
+    overflow: auto;
+    height: -webkit-fill-available;
+  }
+}
+@media (min-width: 480px) {
+  .navbar-theme .dropdown .menu-categories {
+    display: block !important;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: 0.3s opacity linear;
+    transition-property: opacity, transform;
+  }
+  .navbar-theme .dropdown.show .menu-categories {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+@media (max-width: 767px) {
+  .navbar-brand {
+    margin-right: 0;
+  }
+}
+.header-phone {
+  font-size: 1.5rem;
+  color: #1e1e1e;
+  text-decoration: none !important;
+}
+@media (max-width: 767px) {
+  .header-phone {
+    font-size: 1.4rem;
+  }
+}
+/**
+ * menu-categories
+ */
+.menu-categories {
+  width: 100%;
+  margin-top: 0px;
+  border: none;
+  background-color: #ebebeb;
+  box-shadow: inset 0px 4px 10px #00000012;
+}
+@media (min-width: 480px) {
+  .menu-categories {
+    background-image: url("../images/brain.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: auto 80%;
+  }
+}
+.menu-categories-item .card-preview {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+@media (max-width: 767px) {
+  .menu-categories-item .card-preview {
+    display: none;
+  }
+}
+.menu-categories-item .card-preview > div {
+  width: 100%;
+  margin: auto;
+}

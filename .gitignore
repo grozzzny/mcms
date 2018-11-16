@@ -32,6 +32,14 @@ tests/_support/_generated
 #vagrant folder
 /.vagrant
 
-/config/db.php
-/config/smtp.php
+
 /composer.lock
+
+#Исключаем директории из публичной части
+apps/**/config/db.php
+apps/**/config/smtp.php
+apps/**/web/assets/**
+apps/**/web/minify/**
+apps/**/runtime/*
+
+params-local.php
