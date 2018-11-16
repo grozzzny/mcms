@@ -1,12 +1,12 @@
 {
-    "name": "grozzzny/yiicms",
-    "description": "Yii 2 cms by grozzzny",
-    "keywords": ["yii2", "framework", "basic", "cms"],
+    "name": "grozzzny/mcms",
+    "description": "CMS multiple sites. Yii2. Bootstrap 3,  Bootstrap 4,  MDBootstrap. ",
+    "keywords": ["yii2", "framework", "Bootstrap 3", "cms", "Bootstrap 4", "MDBootstrap"],
     "homepage": "http://pr-kenig.ru/",
     "type": "project",
     "license": "MIT",
     "support": {
-        "source": "https://github.com/grozzzny/yiicms.git"
+        "source": "https://github.com/grozzzny/mcms.git"
     },
     "minimum-stability": "dev",
     "require": {
@@ -54,15 +54,18 @@
         "yii\\composer\\Installer::postCreateProject": {
             "setPermission": [
                 {
-                    "runtime": "0777",
-                    "web/assets": "0777",
+                    "apps/main/runtime": "0777",
+                    "apps/main/web/assets": "0777",
+                    "apps/admin/runtime": "0777",
+                    "apps/admin/web/assets": "0777",
                     "yii": "0755"
                 }
             ]
         },
         "yii\\composer\\Installer::postInstall": {
             "generateCookieValidationKey": [
-                "config/web.php"
+                "apps/admin/config/web.php",
+                "apps/main/config/web.php"
             ]
         }
     },
