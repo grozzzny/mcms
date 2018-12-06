@@ -1,13 +1,13 @@
 <?php
 
 
-namespace app\models;
+namespace common\models;
 
 
 
 /**
  * Class News
- * @package app\models
+ * @package common\models
  *
  * @property-read string $date
  */

@@ -5,6 +5,7 @@ namespace common\modules;
 
 use Yii;
 use yii\web\Application;
+use yii\web\View;
 
 class AdminModule extends \yii\easyii2\AdminModule
 {

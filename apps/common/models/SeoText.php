@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\models;
+namespace common\models;
 
 class SeoText extends \yii\easyii2\models\SeoText
 {

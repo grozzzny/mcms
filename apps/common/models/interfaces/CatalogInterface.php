@@ -1,11 +1,11 @@
 <?php
 
 
-namespace app\models;
+namespace common\models;
 
 /**
  * Interface CatalogInterface
- * @package app\models
+ * @package common\models
  *
  * @property-read string $mainCategorySlug
  */

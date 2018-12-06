@@ -1,12 +1,12 @@
 <?php
-namespace app\models;
+namespace common\models;
 
 use yii\base\Exception;
 use yii\helpers\Url;
 
 /**
  * Class Category
- * @package app\models
+ * @package common\models
  */
 class Category extends \grozzzny\catalog\models\Category implements CatalogInterface
 {
@@ -14,7 +14,7 @@ class Category extends \grozzzny\catalog\models\Category implements CatalogInter
 
     public function getMainCategorySlug()
     {
-        if(empty($this->category_slug) && get_called_class() != 'app\models\Category') throw new Exception('Empty variable $category_slug');
+        if(empty($this->category_slug) && get_called_class() != 'common\models\Category') throw new Exception('Empty variable $category_slug');
 
         return $this->category_slug;
     }

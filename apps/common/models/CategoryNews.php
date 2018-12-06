@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\models;
+namespace common\models;
 
 
 class CategoryNews extends Category

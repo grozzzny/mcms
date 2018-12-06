@@ -1,5 +1,5 @@
 <?php
-namespace app\models;
+namespace common\models;
 
 use yii\base\Exception;
 use yii\helpers\Url;
@@ -7,7 +7,7 @@ use yii\helpers\Url;
 
 /**
  * Class Item
- * @package app\models
+ * @package common\models
  * @property-read DataProperties $dataProperties
  */
 class Item extends \grozzzny\catalog\models\Item implements CatalogInterface
